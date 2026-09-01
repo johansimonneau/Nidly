@@ -4,12 +4,22 @@ import '../models/candidature.dart';
 import '../models/candidature_status.dart';
 import '../services/storage_service.dart';
 
-/// Add/edit form. Pass an existing [candidature] to edit it in place,
-/// or omit it to create a new one.
+/// Add/edit form. Pass an existing [candidature] to edit it in place, or
+/// omit it to create a new one — optionally pre-filled (e.g. from the
+/// directory) via [prefillNom], [prefillType] and [prefillAdresse].
 class CandidatureFormScreen extends StatefulWidget {
-  const CandidatureFormScreen({super.key, this.candidature});
+  const CandidatureFormScreen({
+    super.key,
+    this.candidature,
+    this.prefillNom,
+    this.prefillType,
+    this.prefillAdresse,
+  });
 
   final Candidature? candidature;
+  final String? prefillNom;
+  final ModeGardeType? prefillType;
+  final String? prefillAdresse;
 
   @override
   State<CandidatureFormScreen> createState() => _CandidatureFormScreenState();
@@ -33,11 +43,13 @@ class _CandidatureFormScreenState extends State<CandidatureFormScreen> {
   void initState() {
     super.initState();
     final c = widget.candidature;
-    _nomController = TextEditingController(text: c?.nom ?? '');
+    _nomController =
+        TextEditingController(text: c?.nom ?? widget.prefillNom ?? '');
     _contactController = TextEditingController(text: c?.contact ?? '');
-    _adresseController = TextEditingController(text: c?.adresse ?? '');
+    _adresseController = TextEditingController(
+        text: c?.adresse ?? widget.prefillAdresse ?? '');
     _notesController = TextEditingController(text: c?.notes ?? '');
-    _type = c?.type ?? ModeGardeType.crecheMunicipale;
+    _type = c?.type ?? widget.prefillType ?? ModeGardeType.crecheMunicipale;
     _status = c?.status ?? CandidatureStatus.aContacter;
     _dateLimiteDossier = c?.dateLimiteDossier;
     _dateRentreeSouhaitee = c?.dateRentreeSouhaitee;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
+import 'annuaire_screen.dart';
 import 'checklist_screen.dart';
 import 'dashboard_screen.dart';
 import 'reminders_screen.dart';
@@ -21,8 +22,10 @@ class _HomeShellState extends State<HomeShell> {
   Widget _buildBody() {
     switch (_index) {
       case 1:
-        return const RemindersScreen();
+        return const AnnuaireScreen();
       case 2:
+        return const RemindersScreen();
+      case 3:
         return const ChecklistScreen();
       case 0:
       default:
@@ -62,6 +65,11 @@ class _HomeShellState extends State<HomeShell> {
                   icon: Icon(Icons.list_alt_outlined),
                   selectedIcon: Icon(Icons.list_alt),
                   label: 'Candidatures',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.search_rounded),
+                  selectedIcon: Icon(Icons.search_rounded),
+                  label: 'Annuaire',
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.notifications_outlined),
