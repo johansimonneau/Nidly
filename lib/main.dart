@@ -20,7 +20,7 @@ class NidlyApp extends StatelessWidget {
       title: 'Nidly',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.light,
       home: StorageService.hasCompletedOnboarding
           ? const HomeShell()
           : const OnboardingScreen(),

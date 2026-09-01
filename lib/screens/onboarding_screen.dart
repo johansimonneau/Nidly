@@ -63,15 +63,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 24),
-                Icon(Icons.eco_rounded,
-                    size: 48, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(height: 16),
+                Container(
+                  width: 64,
+                  height: 64,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary
+                        .withValues(alpha: 0.14),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(Icons.holiday_village_rounded,
+                      size: 32, color: Theme.of(context).colorScheme.primary),
+                ),
+                const SizedBox(height: 20),
                 Text(
                   'Bienvenue sur Nidly',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall
-                      ?.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 const SizedBox(height: 8),
                 Text(
