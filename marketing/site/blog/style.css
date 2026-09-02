@@ -1,3 +1,46 @@
+@font-face {
+  font-family: "Fredoka";
+  font-weight: 500;
+  src: url("../assets/fonts/Fredoka-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fredoka";
+  font-weight: 600;
+  src: url("../assets/fonts/Fredoka-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fredoka";
+  font-weight: 700;
+  src: url("../assets/fonts/Fredoka-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 400;
+  src: url("../assets/fonts/PlusJakartaSans-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  src: url("../assets/fonts/PlusJakartaSans-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 600;
+  src: url("../assets/fonts/PlusJakartaSans-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+  src: url("../assets/fonts/PlusJakartaSans-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --cream: #FFF8EF;
   --surface: #FFFFFF;
@@ -289,6 +332,13 @@ nav.main-nav a:hover { color: var(--coral); }
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.feature-card-big:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(43, 33, 24, 0.1);
 }
 
 .feature-card-big h3 { font-size: 20px; margin: 0 0 8px; }
@@ -376,7 +426,7 @@ footer.site-footer {
   max-width: 1120px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 32px;
   text-align: left;
 }
@@ -401,6 +451,127 @@ footer.site-footer {
   color: var(--ink-soft);
   font-size: 13px;
   text-align: center;
+}
+
+/* ---------- Pillar (feature) pages ---------- */
+
+.pillar-hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 24px 56px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.pillar-hero .eyebrow {
+  color: var(--coral);
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.pillar-hero h1 { font-size: 38px; margin: 0 0 16px; }
+.pillar-hero .subhead { color: var(--ink-soft); font-size: 17px; margin-bottom: 28px; }
+
+.pillar-hero .phone-frame {
+  width: 260px;
+  margin: 0 auto;
+}
+
+.pillar-section {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.pillar-section h2 { font-size: 26px; }
+
+.pillar-steps {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  counter-reset: step;
+}
+
+.pillar-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 4px 0 24px 52px;
+  font-size: 16px;
+}
+
+.pillar-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: white;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar-steps strong { display: block; margin-bottom: 2px; font-family: "Fredoka", sans-serif; }
+
+.pillar-crosslinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (max-width: 760px) {
+  .pillar-hero { grid-template-columns: 1fr; text-align: center; }
+  .pillar-hero .phone-frame { width: 200px; }
+  .pillar-crosslinks { grid-template-columns: 1fr; }
+}
+
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--ink);
+  color: #FFF8EF;
+  border-radius: 18px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 12px 32px rgba(43, 33, 24, 0.25);
+  font-size: 13.5px;
+}
+
+.cookie-banner p { margin: 0; color: #F0E9DE; font-size: 13.5px; flex: 1; min-width: 200px; }
+.cookie-banner a { color: var(--sunshine); }
+
+.cookie-banner-dismiss {
+  background: var(--coral);
+  color: white;
+  border: none;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 @media (max-width: 760px) {
