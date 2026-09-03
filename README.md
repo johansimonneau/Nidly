@@ -38,3 +38,9 @@ flutter test
 ```bash
 flutter build web --release
 ```
+
+## Licence
+
+Copyright (c) 2026 Johan Simonneau. Tous droits réservés. Ce dépôt est public à
+des fins de consultation uniquement — aucune réutilisation, modification ou
+redistribution n'est autorisée sans accord écrit préalable. Voir [LICENSE](LICENSE).
